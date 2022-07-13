@@ -48,3 +48,49 @@ form button:hover {
     background: white;
     color: #c8a0ee;
 }
+
+
+
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    /* min-width: 30%; */
+    min-width: 300px;
+    list-style: none;
+}
+
+.todo {
+    margin: 0.5rem;
+    background: white;
+    color: #444;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo li {
+    flex: 1;
+}
+
+.completedBtn,
+.trashBtn {
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.completedBtn {
+    background: #5fb35f;
+}
+
+.trashBtn {
+    background: #ff6347;
+}

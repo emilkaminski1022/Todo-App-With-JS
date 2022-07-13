@@ -17,13 +17,15 @@ function addTodo(e) {
 
   const completedBtn = document.createElement("button");
   completedBtn.innerHTML = "<i class='fa fa-check' aria-hidden='true'></i>";
-  todoLi.classList.add("todo-completedBtn");
+  completedBtn.classList.add("completedBtn");
 
   todoDiv.appendChild(completedBtn);
 
   const trashBtn = document.createElement("button");
-  trashBtn.innerHTML = "<i class='fa fa-trash-o' aria-hidden='true'></i>";
-  todoLi.classList.add("todo-trashBtn");
+  trashBtn.innerHTML = "<i class='fa fa-trash' aria-hidden='true'></i>";
+  trashBtn.classList.add("trashBtn");
 
   todoDiv.appendChild(trashBtn);
+
+  todoList.appendChild(todoDiv)
 }
