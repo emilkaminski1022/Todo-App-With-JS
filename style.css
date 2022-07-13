@@ -68,7 +68,7 @@ form button:hover {
     margin: 0.5rem;
     background: white;
     color: #444;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,6 +97,12 @@ form button:hover {
 .trashBtn {
     background: #ff6347;
 }
-.todo-item{
-    padding:0 0.5rem;
+
+.todo-item {
+    padding: 0 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+    pointer-events: none;
 }
