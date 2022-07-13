@@ -6,12 +6,13 @@
 
 body {
     min-height: 100vh;
-    /* background-color: #8EC5FC; */
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     font-family: 'Poppins', sans-serif;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     flex-direction: column;
 }
 
@@ -29,6 +30,7 @@ form button {
     padding: 0.5rem;
     font-size: 2rem;
     border: none;
+
     background: white;
     border-radius: 5px;
 }
@@ -41,6 +43,7 @@ form button {
     color: white;
     background: #c8a0ee;
     cursor: pointer;
+
     transition: all 0.3s ease;
 }
 
@@ -75,6 +78,8 @@ form button:hover {
 
     font-size: 1.5rem;
     border-radius: 5px;
+    transition: all 0.4s ease;
+
 }
 
 .todo li {
@@ -105,4 +110,14 @@ form button:hover {
 .fa-trash,
 .fa-check {
     pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.drop{
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
 }
