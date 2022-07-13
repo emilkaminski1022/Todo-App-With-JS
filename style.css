@@ -68,10 +68,13 @@ form button:hover {
     margin: 0.5rem;
     background: white;
     color: #444;
-    font-size: 1.5rem;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    font-size: 1.5rem;
+    border-radius: 5px;
 }
 
 .todo li {
@@ -93,4 +96,7 @@ form button:hover {
 
 .trashBtn {
     background: #ff6347;
+}
+.todo-item{
+    padding:0 0.5rem;
 }
