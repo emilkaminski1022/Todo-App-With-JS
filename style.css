@@ -8,8 +8,6 @@ body {
     min-height: 100vh;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     font-family: 'Poppins', sans-serif;
-
-
 }
 
 main {
@@ -19,11 +17,11 @@ main {
 
     flex-direction: column;
     min-height: 100vh;
-    /* background: red; */
 }
 
 header {
     font-size: 1.5rem;
+    color: white;
 }
 
 header,
@@ -107,6 +105,8 @@ form button:hover {
 
 .trashBtn {
     background: #ff6347;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .todo-item {
@@ -132,30 +132,26 @@ form button:hover {
 
 
 
-
-
-
-
 main select {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
     appearance: none;
+
     outline: 0;
     border: 0 !important;
-    /* box-shadow: none; */
-    /* background-image: none; */
     color: #c8a0ee;
+
     cursor: pointer;
     width: 8rem;
     padding: 0.5rem;
+    border-radius: 5px;
 }
 
 /* Custom Select */
 .select {
     margin: 1rem;
     position: relative;
-    /* overflow: hidden; */
     display: flex;
     justify-content: flex-end;
 }
@@ -165,13 +161,17 @@ main select {
     content: "\25BC";
     position: absolute;
     top: 0;
+
     right: 0;
     padding: 0.2rem 0.5rem;
     background: #c8a0ee;
+
     color: white;
     pointer-events: none;
     transition: .4s;
-    /* cursor: pointer; */
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .select:hover::after {

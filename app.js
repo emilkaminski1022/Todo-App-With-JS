@@ -1,7 +1,6 @@
 const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
-
 const filterOption = document.querySelector(".filter-todo");
 
 document.addEventListener("DOMContentLoaded", getTodos);
@@ -16,11 +15,12 @@ function addTodo(e) {
 
   const todoLi = document.createElement("li");
   todoLi.innerText = todoInput.value;
+  saveLocalTodos(todoInput.value); // add to localstorage
+  
   todoLi.classList.add("todo-item");
-
   todoDiv.appendChild(todoLi);
   todoInput.value = "";
-  saveLocalTodos(todoInput.value); // add to localstorage
+
 
   const completedBtn = document.createElement("button");
   completedBtn.innerHTML = "<i class='fa fa-check' aria-hidden='true'></i>";
@@ -35,14 +35,17 @@ function addTodo(e) {
   todoDiv.appendChild(trashBtn);
 
   todoList.appendChild(todoDiv);
+
 }
 
 function deleteCheck(e) {
   const item = e.target;
+
   if (item.classList[0] === "trashBtn") {
     const todo = item.parentElement;
-    todo.classList.toggle("drop");
+    todo.classList.add("drop");
     removeLocalTodos(todo);
+    
     todo.addEventListener("transitionend", () => {
       todo.remove();
     });
@@ -75,9 +78,6 @@ function filterTodo(e) {
           todo.style.display = "none";
         }
         break;
-      default:
-        todo.style.display = "flex";
-        break;
     }
   });
 }
@@ -93,6 +93,20 @@ function saveLocalTodos(todo) {
   todos.push(todo);
   localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+function removeLocalTodos(todo) {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+
+  const todoIndex = todo.children[0].innerText;
+  todos.splice(todos.indexOf(todoIndex), 1);
+  localStorage.setItem("todo", JSON.stringify(todos));
+}
+
 
 function getTodos() {
   let todos;
@@ -111,7 +125,6 @@ function getTodos() {
     todoLi.classList.add("todo-item");
 
     todoDiv.appendChild(todoLi);
-    todoInput.value = "";
 
     const completedBtn = document.createElement("button");
     completedBtn.innerHTML = "<i class='fa fa-check' aria-hidden='true'></i>";
@@ -128,15 +141,3 @@ function getTodos() {
   });
 }
 
-function removeLocalTodos(todo) {
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem("todos"));
-  }
-
-  const todoIndex = todo.children[0].innerText;
-  todos.splice(todos.indexOf(todoIndex), 1);
-  localStorage.setItem("todo", JSON.stringify(todos));
-}
