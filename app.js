@@ -2,8 +2,12 @@ const todoInput = document.querySelector(".todo-input");
 const todoButton = document.querySelector(".todo-button");
 const todoList = document.querySelector(".todo-list");
 
+const filterOption = document.querySelector(".filter-todo");
+
+document.addEventListener("DOMContentLoaded", getTodos);
 todoButton.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
+filterOption.addEventListener("click", filterTodo);
 
 function addTodo(e) {
   e.preventDefault();
@@ -15,6 +19,8 @@ function addTodo(e) {
   todoLi.classList.add("todo-item");
 
   todoDiv.appendChild(todoLi);
+  todoInput.value = "";
+  saveLocalTodos(todoInput.value); // add to localstorage
 
   const completedBtn = document.createElement("button");
   completedBtn.innerHTML = "<i class='fa fa-check' aria-hidden='true'></i>";
@@ -29,7 +35,6 @@ function addTodo(e) {
   todoDiv.appendChild(trashBtn);
 
   todoList.appendChild(todoDiv);
-  todoInput.value = "";
 }
 
 function deleteCheck(e) {
@@ -37,6 +42,7 @@ function deleteCheck(e) {
   if (item.classList[0] === "trashBtn") {
     const todo = item.parentElement;
     todo.classList.toggle("drop");
+    removeLocalTodos(todo);
     todo.addEventListener("transitionend", () => {
       todo.remove();
     });
@@ -47,3 +53,5 @@ function deleteCheck(e) {
     todo.classList.toggle("completed");
   }
 }
+
+
